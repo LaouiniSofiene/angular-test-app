@@ -1,0 +1,36 @@
+<div class="container">
+    <h2>Submitted Form Data</h2>
+    <div class="card mb-3">
+      <div class="card-header">Details</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">First Name: {{ formData.firstName }}</li>
+        <li class="list-group-item">Last Name: {{ formData.lastName }}</li>
+        <li class="list-group-item">Email: {{ formData.email }}</li>
+        <li class="list-group-item">Subscription: {{ formData.subscription }}</li>
+        <!-- We won't display password for security reasons -->
+      </ul>
+    </div>
+  
+    <h2>CSV Data</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of csvData">
+          <td>{{ row[0] }}</td>
+          <td>{{ row[1] }}</td>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[3] }}</td>
+          <td>{{ row[4] }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,60 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div *ngIf="cumulativeError" class="alert alert-danger">
+      {{ cumulativeError }}
+    </div>
+  
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstName">
+      <div *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched" class="text-danger">
+        First name is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName">
+      <div *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched" class="text-danger">
+        Last name is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" class="form-control" formControlName="email">
+      <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-danger">
+        Valid email address is required.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label>Subscription</label>
+      <select class="form-control" formControlName="subscription">
+        <option value="Basic">Basic</option>
+        <option value="Advanced" selected>Advanced</option>
+        <option value="Pro">Pro</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" formControlName="password">
+      <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="text-danger">
+        Password must be 8 characters long with at least one character and one special character.
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label>CSV File</label>
+      <input type="file" (change)="onFileChange($event)" class="form-control" formControlName="file">
+      <div *ngIf="form.get('file')?.invalid && form.get('file')?.touched" class="text-danger">
+        CSV file is required.
+      </div>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-secondary" (click)="onClear()">Clear</button>
+  
+  </form>
+  
