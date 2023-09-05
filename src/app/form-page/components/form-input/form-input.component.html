@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label>{{ label }}</label>
+    <input [type]="type" [formControl]="control" class="form-control">
+    <div *ngIf="control.invalid && control.touched" class="text-danger">
+        <ng-container *ngFor="let errorKey of errorKeys">
+            <div>{{ getErrorMessage(errorKey) }}</div>
+        </ng-container>
+    </div>
+</div>

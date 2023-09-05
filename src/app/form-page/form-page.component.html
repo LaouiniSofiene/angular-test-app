@@ -4,29 +4,14 @@
       {{ cumulativeError }}
     </div>
   
-    <div class="form-group">
-      <label>First Name</label>
-      <input type="text" class="form-control" formControlName="firstName">
-      <div *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched" class="text-danger">
-        First name is required.
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <label>Last Name</label>
-      <input type="text" class="form-control" formControlName="lastName">
-      <div *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched" class="text-danger">
-        Last name is required.
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <label>Email Address</label>
-      <input type="email" class="form-control" formControlName="email">
-      <div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="text-danger">
-        Valid email address is required.
-      </div>
-    </div>
+    <!-- First Name -->
+    <app-form-input label="First Name" type="text" [control]="getControl('firstName')"></app-form-input>
+    
+    <!-- Last Name -->
+    <app-form-input label="Last Name" type="text" [control]="getControl('lastName')"></app-form-input>
+
+    <!-- Email -->
+    <app-form-input label="Email" type="email" [control]="getControl('email')"></app-form-input>
   
     <div class="form-group">
       <label>Subscription</label>
@@ -37,13 +22,8 @@
       </select>
     </div>
   
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" class="form-control" formControlName="password">
-      <div *ngIf="form.get('password')?.invalid && form.get('password')?.touched" class="text-danger">
-        Password must be 8 characters long with at least one character and one special character.
-      </div>
-    </div>
+    <!-- Password -->
+    <app-form-input label="Password" type="password" [control]="getControl('password')"></app-form-input>
   
     <div class="form-group">
       <label>CSV File</label>

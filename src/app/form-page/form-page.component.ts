@@ -18,6 +18,10 @@ export class FormPageComponent implements OnInit {
 
   constructor(private router: Router, private formDataService: FormDataService) { }
 
+  getControl(name: string): FormControl {
+    return this.form.get(name) as FormControl;
+  }
+  
   ngOnInit(): void {
     this.form = new FormGroup({
       firstName: new FormControl(null, Validators.required),
